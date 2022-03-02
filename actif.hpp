@@ -8,9 +8,16 @@ class Actif {
         double _prixRevientUnitaire;
         int _quantite;
         static int _idAttribue;
-    public:
-        Actif(string, int, double);
         Actif(const Actif&);
+    public:
+        Actif(string , int , double );
+        int getId() const { return _id; }
+        string getNom() const { return _nom; }
+        double getPrixRevientUnitaire()const { return _prixRevientUnitaire; }
+        int getQuantite()const { return _quantite; }
+        static int getDernierIdAttribue() { return _idAttribue; }
+
+        Actif(string, int, double);
         ~Actif();
         void setId(int id);
         void setNom(string nom);
