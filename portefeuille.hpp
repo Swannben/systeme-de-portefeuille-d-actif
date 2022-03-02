@@ -12,7 +12,6 @@ class Portefeuille {
         ~Portefeuille();
         void achatActif(string,int,double);
         double venteActif(string,int,double);
-
     
     
 };
