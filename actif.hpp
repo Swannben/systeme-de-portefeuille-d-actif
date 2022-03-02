@@ -12,9 +12,11 @@ class Actif {
         Actif(string, int, double);
         Actif(const Actif&);
         ~Actif();
-        void SetId(int id);
-        void SetNom(string nom);
-        
-        void SetIdAttribue(int idA);
+        void setId(int id);
+        void setNom(string nom);
+        void setIdAttribue(int idA);
+        void achat(int quantite, double prix = 0);
+        void vente(int quantite, double prix = 0);
+
 
 };

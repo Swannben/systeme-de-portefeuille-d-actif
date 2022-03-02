@@ -1,7 +1,12 @@
 #pragma once
-
+#include "actif.hpp"
 class Portefeuille {
+    private:
+        int nba;
+        int capacite;
+        Actif* actifs;
     public: 
-    static void echange(int& i1, int& i2);
+
+    
     
 };
