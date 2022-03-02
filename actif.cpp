@@ -20,5 +20,14 @@ Actif::Actif(const Actif& actif) {
 	this -> _quantite =actif.getQuantite();
 }
 
+void Actif::SetId(int id) {
+    _id = id;
+}
+void Actif::SetNom(string nom) {
+    _nom = nom;
+}
 
+void Actif::SetIdAttribue(int idA) {
+    _idAttribue = idA;
+}
 

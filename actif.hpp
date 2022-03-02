@@ -17,5 +17,11 @@ class Actif {
         int getQuantite()const { return _quantite; }
         static int getDernierIdAttribue() { return _idAttribue; }
 
+        Actif(string, int, double);
+        ~Actif();
+        void SetId(int id);
+        void SetNom(string nom);
+        
+        void SetIdAttribue(int idA);
 
 };
