@@ -11,5 +11,17 @@ Actif::Actif(const Actif&) {
 Actif::Actif(string nom, int quantite, double pru) {
 
 }
-void Actif::SetId(int id) {
+Actif::~Actif() {
+
 }
+void Actif::SetId(int id) {
+    _id = id;
+}
+void Actif::SetNom(string nom) {
+    _nom = nom;
+}
+
+void Actif::SetIdAttribue(int idA) {
+    _idAttribue = idA;
+}
+
