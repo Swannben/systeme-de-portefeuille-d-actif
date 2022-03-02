@@ -14,6 +14,7 @@ class Actif {
         ~Actif();
         void SetId(int id);
         void SetNom(string nom);
+        
         void SetIdAttribue(int idA);
 
 };

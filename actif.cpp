@@ -9,7 +9,7 @@ Actif::Actif(const Actif&) {
 
 }
 Actif::Actif(string nom, int quantite, double pru) {
-
+    _idAttribue += 1;
 }
 Actif::~Actif() {
 
