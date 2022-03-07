@@ -41,7 +41,7 @@ void Actif::achat(int quantite, double prix = 0) {
     
     this->_quantite += quantite;
     
-    
+    this->_prixRevientUnitaire = prix;
 }
 
 void Actif::vente(int quantite, double prix = 0) {
@@ -54,6 +54,16 @@ void Actif::vente(int quantite, double prix = 0) {
     if (oldQuantite - quantite > 0) {
         this->_quantite -= quantite;
     }
+    else {
+        cout << "Quantité insuffisante pour vendre";
+    }
     
-    
+    this->_prixRevientUnitaire = prix;
+}
+
+void Actif::afficher() {
+    cout << "ID" << this->_id;
+    cout << "Nom" << this->_nom;
+    cout << "Prix de revient unitaire" << this->_prixRevientUnitaire;
+    cout << "Quantite" << this->_quantite;
 }

@@ -4,5 +4,13 @@
 using namespace std;
 
 
-void Portefeuille::methode() {
+Portefeuille::Portefeuille(int = 1) {
+}
+Portefeuille::Portefeuille(const Portefeuille&) {
+}
+Portefeuille::~Portefeuille() {
+}
+void Portefeuille::achatActif(string,int,double) {
+}
+double Portefeuille::venteActif(string,int,double) {
 }

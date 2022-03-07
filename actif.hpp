@@ -24,6 +24,7 @@ class Actif {
         void setIdAttribue(int idA);
         void achat(int quantite, double prix = 0);
         void vente(int quantite, double prix = 0);
+        void afficher();
 
 
 };
