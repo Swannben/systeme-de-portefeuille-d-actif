@@ -7,7 +7,7 @@ using namespace std;
 Portefeuille::Portefeuille(int capacite = 1) {
     this->_nba = 0;
     this->_capacite = capacite;
-    this->_actifs;
+    this->_actifs = new Actif[capacite] ; 
 }
 Portefeuille::Portefeuille(const Portefeuille& portefeuille) {
     this->_nba = portefeuille.getNba();
@@ -15,9 +15,48 @@ Portefeuille::Portefeuille(const Portefeuille& portefeuille) {
 	this->_actifs = portefeuille.getActifs();
 }
 Portefeuille::~Portefeuille() {
+    delete _actifs;
 }
-void Portefeuille::achatActif(string,int,double) {
+void Portefeuille::achatActif(string nom,int quantite,double prix) {
+    int i = 0;
+    while ( i < _capacite && _actifs[i].getNom()!=nom) {
+        i++;
+    }
+    if (_actifs[i].getNom() == nom) {
+        _actifs[i].achat(quantite, prix);
+    }
+    else if (_nba!=_capacite) {
+        _nba++;
+        _actifs[_nba] = Actif(nom, quantite, prix);
+    }
+    else {
+        _capacite++;
+        _nba++;
+        _actifs[_nba] = Actif(nom, quantite, prix);
+    }
 }
-double Portefeuille::venteActif(string,int,double) {
+double Portefeuille::venteActif(string nom,int quantite,double prix) {
+    int i = 0;
+    while (i < _capacite && _actifs[i].getNom() != nom) {
+        i++;
+    }
+    if (_actifs[i].getNom() == nom) {
+        if (_actifs[i].getQuantite() > quantite) {
+            _actifs[i].vente(quantite, prix);
+        }
+        else {
+            _actifs[i]=_actifs[_nba];
+            _actifs[_nba] = Actif();
+        }
+    }
+    else {
+        cout << " il n'y a pas d'actif portant ce nom";
+    }
 }
 
+void Portefeuille::redimensionneTableauActifs(int nouvCap) {
+    Actif* newTab = new Actif[nouvCap];
+    copy(&_actifs[0], &_actifs[min(_nba,nouvCap)-1], &newTab[0]);
+    std::swap(_actifs, newTab);
+    delete(newTab);
+}

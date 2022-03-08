@@ -11,6 +11,7 @@ class Actif {
         Actif(const Actif&);
     public:
         Actif(string , int , double );
+        Actif();
         int getId() const { return _id; }
         string getNom() const { return _nom; }
         double getPrixRevientUnitaire()const { return _prixRevientUnitaire; }
@@ -25,6 +26,6 @@ class Actif {
         void achat(int quantite, double prix = 0);
         void vente(int quantite, double prix = 0);
         void afficher();
-
+        
 
 };

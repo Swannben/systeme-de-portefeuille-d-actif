@@ -11,9 +11,11 @@ Actif::Actif( std::string nom, int quantite, double prixRevientUnitaire) {
 	this->_nom = nom;
 	this->_quantite = quantite;
 }
-Actif::Actif(string nom, int quantite, double pru) {
-}
 Actif::~Actif() {
+}
+
+Actif::Actif() {
+
 }
 
 Actif::Actif(const Actif& actif) {
