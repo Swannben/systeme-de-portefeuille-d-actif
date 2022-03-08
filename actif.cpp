@@ -9,10 +9,7 @@ Actif::Actif( std::string nom, int quantite, double prixRevientUnitaire) {
 	this->_prixRevientUnitaire = prixRevientUnitaire;
 	this->_nom = nom;
 	this->_quantite = quantite;
-<<<<<<< HEAD
-=======
     this->_idAttribue = this->_idAttribue+1;
->>>>>>> 152e80fc86858669e05845554611558767c4cd4a
 }
 Actif::~Actif() {
 }

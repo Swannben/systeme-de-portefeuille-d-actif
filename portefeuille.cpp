@@ -35,7 +35,6 @@ void Portefeuille::achatActif(string nom,int quantite,double prix) {
         _actifs[_nba] = Actif(nom, quantite, prix);
     }
 }
-<<<<<<< HEAD
 double Portefeuille::venteActif(string nom,int quantite,double prix) {
     int i = 0;
     while (i < _capacite && _actifs[i].getNom() != nom) {
@@ -53,10 +52,6 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     else {
         cout << " il n'y a pas d'actif portant ce nom";
     }
-=======
-double Portefeuille::venteActif(string,int,double) {
-    return 3;
->>>>>>> 152e80fc86858669e05845554611558767c4cd4a
 }
 
 void Portefeuille::redimensionneTableauActifs(int nouvCap) {
