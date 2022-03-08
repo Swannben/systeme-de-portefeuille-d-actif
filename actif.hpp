@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+using namespace std;
 class Actif {
     private:
         int _id;
@@ -16,14 +16,12 @@ class Actif {
         double getPrixRevientUnitaire()const { return _prixRevientUnitaire; }
         int getQuantite()const { return _quantite; }
         static int getDernierIdAttribue() { return _idAttribue; }
-
-        Actif(string, int, double);
         ~Actif();
         void setId(int id);
         void setNom(string nom);
         void setIdAttribue(int idA);
         void achat(int quantite, double prix = 0);
-        void vente(int quantite, double prix = 0);
+        void vente(int quantite);
         void afficher();
 
 

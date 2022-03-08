@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Portefeuille::Portefeuille(int capacite = 1) {
+Portefeuille::Portefeuille(int capacite /*= 1*/) {
     this->_nba = 0;
     this->_capacite = capacite;
     this->_actifs;
@@ -19,5 +19,6 @@ Portefeuille::~Portefeuille() {
 void Portefeuille::achatActif(string,int,double) {
 }
 double Portefeuille::venteActif(string,int,double) {
+    return 3;
 }
 

@@ -3,15 +3,13 @@
 #include <string>
 
 using namespace std;
-
+int Actif:: _idAttribue = 0;
 Actif::Actif( std::string nom, int quantite, double prixRevientUnitaire) {
-	_idAttribue++;
 	this->_id = _idAttribue;
 	this->_prixRevientUnitaire = prixRevientUnitaire;
 	this->_nom = nom;
 	this->_quantite = quantite;
-}
-Actif::Actif(string nom, int quantite, double pru) {
+    this->_idAttribue = this->_idAttribue+1;
 }
 Actif::~Actif() {
 }
@@ -23,18 +21,18 @@ Actif::Actif(const Actif& actif) {
 	this -> _quantite =actif.getQuantite();
 }
 void Actif::setId(int id) {
-    _id = id;
+    this->_id = id;
 }
 void Actif::setNom(string nom) {
-    _nom = nom;
+   this-> _nom = nom;
 }
 
 void Actif::setIdAttribue(int idA) {
-    _idAttribue = idA;
+    this->_idAttribue = idA;
 }
 
 
-void Actif::achat(int quantite, double prix = 0) {
+void Actif::achat(int quantite, double prix /*= 0*/){
     if (prix == 0) {
         prix = this-> _prixRevientUnitaire;
     }
@@ -44,10 +42,7 @@ void Actif::achat(int quantite, double prix = 0) {
     this->_prixRevientUnitaire = prix;
 }
 
-void Actif::vente(int quantite, double prix = 0) {
-    if (prix == 0) {
-        prix = this-> _prixRevientUnitaire;
-    }
+void Actif::vente(int quantite) {
     
     int oldQuantite = this->_quantite;
     
@@ -57,13 +52,11 @@ void Actif::vente(int quantite, double prix = 0) {
     else {
         cout << "Quantité insuffisante pour vendre";
     }
-    
-    this->_prixRevientUnitaire = prix;
 }
 
 void Actif::afficher() {
-    cout << "ID" << this->_id;
-    cout << "Nom" << this->_nom;
-    cout << "Prix de revient unitaire" << this->_prixRevientUnitaire;
-    cout << "Quantite" << this->_quantite;
+    cout << "ID : " << this->_id << "\n";
+    cout << "Nom : " << this->_nom << "\n";
+    cout << "Prix de revient unitaire : " << this->_prixRevientUnitaire << "\n";
+    cout << "Quantite : " << this->_quantite << "\n";
 }

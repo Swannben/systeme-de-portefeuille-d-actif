@@ -1,5 +1,6 @@
 #pragma once
 #include "actif.hpp"
+using namespace std;
 class Portefeuille {
     private:
         int _nba;
