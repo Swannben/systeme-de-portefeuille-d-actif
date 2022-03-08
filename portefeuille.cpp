@@ -42,7 +42,7 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     }
     if (_actifs[i].getNom() == nom) {
         if (_actifs[i].getQuantite() > quantite) {
-            _actifs[i].vente(quantite, prix);
+            _actifs[i].vente(quantite);
         }
         else {
             _actifs[i]=_actifs[_nba];
