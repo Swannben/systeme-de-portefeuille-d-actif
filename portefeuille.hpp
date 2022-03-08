@@ -2,9 +2,9 @@
 #include "actif.hpp"
 class Portefeuille {
     private:
-        int nba;
-        int capacite;
-        Actif* actifs;
+        int _nba;
+        int _capacite;
+        Actif* _actifs;
         void redimensionneTableauActifs(int nouvelleCapacite);
     public: 
         Portefeuille(int = 1);
@@ -12,6 +12,8 @@ class Portefeuille {
         ~Portefeuille();
         void achatActif(string,int,double);
         double venteActif(string,int,double);
-    
+        int getNba() const { return _nba; }
+        int getCapacite() const { return _capacite; }
+        Actif* getActifs() const { return _actifs; }
     
 };
