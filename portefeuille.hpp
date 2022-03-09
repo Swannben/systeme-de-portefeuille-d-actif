@@ -19,4 +19,5 @@ class Portefeuille {
         Actif* getActifs() const { return _actifs; }
         void redimensionneTableauActifs(int nouvCap);
         void afficher();
+        double liquiderActif(string, double);
 };

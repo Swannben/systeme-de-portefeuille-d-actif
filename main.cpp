@@ -49,19 +49,24 @@ void VenteActif() {
     portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
 }
 
-void LiquidActifByName(string nom) {
-    
-}
 void LiquidAct() {
-    string nomActifLiquid
+    string nomActifLiquid;
+    double prixActifLiquid;
+    portefeuille->afficher();
     cout << "Nom de l'actif que vous souhaitez liquider\n";
     cin >> nomActifLiquid;
-    LiquidActifByName(nomActifLiquid);
+    cout << "Prix de l'actif que vous souhaitez liquider\n";
+    cin >> prixActifLiquid;
+    portefeuille->liquiderActif(nomActifLiquid, prixActifLiquid);
 
 }
 
 void LiquidPort() {
-
+    int i = 0;
+    while(i < portefeuille->getNba()) {
+        portefeuille->liquiderActif(portefeuille->getActifs()[i].getNom(), portefeuille->getActifs()[i].getPrixRevientUnitaire());
+        i++;
+    }
 }
 
 

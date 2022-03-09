@@ -25,5 +25,6 @@ class Actif {
         void vente(int quantite, double prix = 0);
         void afficher();
         
+        
 
 };
