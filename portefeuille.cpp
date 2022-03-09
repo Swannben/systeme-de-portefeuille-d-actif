@@ -19,27 +19,12 @@ Portefeuille::~Portefeuille() {
 }
 void Portefeuille::achatActif(string nom,int quantite,double prix) {
     int i = 0;
-<<<<<<< HEAD
     while ( i < _nba && _actifs[i].getNom()!=nom) {
-=======
-    while ( i < _capacite && this->_actifs[i].getNom()!=nom) {
->>>>>>> 34bd86a4cb1c6e4bb52e22638ebd876774b6c968
         i++;
     }
     if (this->_actifs[i].getNom() == nom) {
         this->_actifs[i].achat(quantite, prix);
     }
-<<<<<<< HEAD
-    else if (_nba!=_capacite) {
-        
-        _actifs[_nba] = Actif(nom, quantite, prix);
-        _nba++;
-    }
-    else {
-        redimensionneTableauActifs(_capacite * 2);
-        _nba++;
-        _actifs[_nba-1] = Actif(nom, quantite, prix);
-=======
     else if (this->_nba!=_capacite) {
         this->_nba++;
         this->_actifs[this->_nba] = Actif(nom, quantite, prix);
@@ -48,7 +33,6 @@ void Portefeuille::achatActif(string nom,int quantite,double prix) {
         _capacite++;
         this->_nba++;
         this->_actifs[this->_nba] = Actif(nom, quantite, prix);
->>>>>>> 34bd86a4cb1c6e4bb52e22638ebd876774b6c968
     }
 }
 double Portefeuille::venteActif(string nom,int quantite,double prix) {
