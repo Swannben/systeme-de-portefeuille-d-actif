@@ -15,50 +15,53 @@ Portefeuille::Portefeuille(const Portefeuille& portefeuille) {
 	this->_actifs = portefeuille.getActifs();
 }
 Portefeuille::~Portefeuille() {
-    delete _actifs;
+    delete this->_actifs;
 }
 void Portefeuille::achatActif(string nom,int quantite,double prix) {
     int i = 0;
-    while ( i < _capacite && _actifs[i].getNom()!=nom) {
+    while ( i < _capacite && this->_actifs[i].getNom()!=nom) {
         i++;
     }
-    if (_actifs[i].getNom() == nom) {
-        _actifs[i].achat(quantite, prix);
+    if (this->_actifs[i].getNom() == nom) {
+        this->_actifs[i].achat(quantite, prix);
     }
-    else if (_nba!=_capacite) {
-        _nba++;
-        _actifs[_nba] = Actif(nom, quantite, prix);
+    else if (this->_nba!=_capacite) {
+        this->_nba++;
+        this->_actifs[this->_nba] = Actif(nom, quantite, prix);
     }
     else {
         _capacite++;
-        _nba++;
-        _actifs[_nba] = Actif(nom, quantite, prix);
+        this->_nba++;
+        this->_actifs[this->_nba] = Actif(nom, quantite, prix);
     }
 }
-<<<<<<< HEAD
 double Portefeuille::venteActif(string nom,int quantite,double prix) {
     int i = 0;
-    while (i < _capacite && _actifs[i].getNom() != nom) {
+    double prixTotalVendu = quantite * prix;
+    while (i < _capacite && this->_actifs[i].getNom() != nom) { //parcours le tableau d'actif  dans le portefeuille
         i++;
-    }
-    if (_actifs[i].getNom() == nom) {
-        if (_actifs[i].getQuantite() > quantite) {
-            _actifs[i].vente(quantite, prix);
+    
+    if (this->_actifs[i].getNom() == nom) { // on cherche un nom spécifique
+        if (this->_actifs[i].getQuantite() > quantite) { //si la quantité de l'actif dans le portefeuille est > à la quantité à vendre
+            this->_actifs[i].vente(quantite); // on vent l'actif avec la quantité souhaité
+            
+            
         }
         else {
-            _actifs[i]=_actifs[_nba];
-            _actifs[_nba] = Actif();
+            prixTotalVendu = prix*_actifs[i].getQuantite();
+            this->_actifs[i]=this->_actifs[this->_nba];
+            this->_actifs[this->_nba] = Actif();   
+            cout << "Vous avez vendu cet actif pour une quantité de " << _actifs[i].getQuantite() << endl;
         }
     }
     else {
         cout << " il n'y a pas d'actif portant ce nom";
-    }
-=======
-double Portefeuille::venteActif(string,int,double) {
-    return 3;
->>>>>>> 152e80fc86858669e05845554611558767c4cd4a
-}
 
+    }
+    }
+    return prixTotalVendu;
+
+}
 void Portefeuille::redimensionneTableauActifs(int nouvCap) {
     Actif* newTab = new Actif[nouvCap];
     copy(&_actifs[0], &_actifs[min(_nba,nouvCap)-1], &newTab[0]);
