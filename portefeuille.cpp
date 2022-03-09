@@ -19,35 +19,36 @@ Portefeuille::~Portefeuille() {
 }
 double Portefeuille::achatActif(string nom,int quantite,double prix) {
     int i = 0;
-    double prixAchete;
     while ( i < _nba-1 && _actifs[i].getNom()!=nom) {
         i++;
     }
     if (this->_actifs[i].getNom() == nom) {
-        prixAchete=this->_actifs[i].achat(quantite, prix);
+        this->_actifs[i].achat(quantite, prix);
     }
     else if (this->_nba!=_capacite) {
         this->_nba++;
         this->_actifs[this->_nba-1] = Actif(nom, quantite, prix);
-        prixAchete = quantite * prix;
+
     }
     else {
         redimensionneTableauActifs(_capacite*2);
         this->_nba++;
         this->_actifs[this->_nba-1] = Actif(nom, quantite, prix);
-        prixAchete = quantite * prix;
-    }
-    return prixAchete;
+}
+    return  _actifs[i].getPrixRevientUnitaire() * quantite;;
 }
 double Portefeuille::venteActif(string nom,int quantite,double prix) {
     int i = 0;
     double prixTotalVendu = quantite * prix;
+    
     while (i < _capacite && this->_actifs[i].getNom() != nom) { //parcours le tableau d'actif  dans le portefeuille
         i++;
     }
+    
     if (_actifs[i].getNom() == nom) {
+        prixTotalVendu = _actifs[i].getPrixRevientUnitaire() * quantite;
         if (_actifs[i].getQuantite() > quantite) {
-            _actifs[i].vente(quantite);
+            _actifs[i].vente(quantite,prix);
         }
         else if (_actifs[i].getQuantite() == quantite) {
             _actifs[i].vente(quantite);

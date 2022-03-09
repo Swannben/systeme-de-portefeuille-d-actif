@@ -8,18 +8,8 @@ using namespace std;
 
 
 Portefeuille* portefeuille = new Portefeuille(10);
-Actif* actif1 = new Actif("actif1", 10, 8.4);
-Actif* actif2 = new Actif("actif2", 20, 9.9);
-Actif* actif3 = new Actif("actif3", 13, 12.4);
-Actif* actif4 = new Actif("actif4", 20, 4.53);
-Actif* actif5 = new Actif("actif5", 15, 10.5);
 
 void AchatActif() {
-    actif1->afficher();
-    actif2->afficher();
-    actif3->afficher();
-    actif4->afficher();
-    actif5->afficher();
     string nomActifAchat;
     double prixAchat;
     int quantiteAchat;
@@ -31,7 +21,7 @@ void AchatActif() {
     cout << "prix d'achat unitaire \n";
     cin >> prixAchat;
     valeurAchat=portefeuille->achatActif(nomActifAchat, quantiteAchat, prixAchat);
-    cout << "vous avez achete pour " << quantiteAchat << " de " << nomActifAchat;
+    cout << "vous avez achete pour " << valeurAchat << " de " << nomActifAchat<< endl;
 }
 
 void VenteActif() {
@@ -45,7 +35,7 @@ void VenteActif() {
     cin >> nomActifVente;
     cout << "Quantite que vous souhaitez vendre : \n";
     cin >> quantiteVente;
-    cout << "prix de vente unitaire (laisser 0 si c'est le prix de revient definit)\n";
+    cout << "prix de vente unitaire \n";
     cin >> prixVente;
     valeurVente=portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
     cout << "vous avez vendu pour " << valeurVente << " de " << nomActifVente << endl;
@@ -53,18 +43,21 @@ void VenteActif() {
 
 void LiquidAct() {
 
-}
+    portefeuille->afficher();
+    string nomActifLiqu;
+    cout << "Nom de l'actif que vous souhaitez liquider : \n";
+    cin >> nomActifLiqu;
 
+}
 
 
 
 
 int main()
 {
-    setvbuf(stdout, nullptr, _IOFBF, 1000);
     bool continuer = true;
     
-    cout << "\n1: Achat d'un actif\n2: Vente d'un actif\n3: Liquidation totale d'un actif\n4: Liquidation totale du portefeuille\n5: Affichage caracteristiques portefeuille\n";
+    cout << "\n1: Achat d'un actif\n2: Vente d'un actif\n3: Liquidation totale d'un actif\n4: Liquidation totale du portefeuille\n5: Affichage caracteristiques portefeuille\n6: sortir  du menu\n";
      int menu;
      cin>>menu;
      while (continuer) {
@@ -75,8 +68,6 @@ int main()
          case 1:
              cout << "\nAchat d'un actif";
              AchatActif();
-             
-
              break;
          case 2:
              cout << "\nVente d'un actif";
@@ -92,6 +83,9 @@ int main()
          case 5:
              cout << "\n affichage des caracteristiques du portefeuille";
              portefeuille->afficher();
+             break;
+         case 6:
+             continuer = false;
              break;
          default:
              cout << "\nNumero entre incorrect";
