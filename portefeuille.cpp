@@ -71,6 +71,22 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     return prixTotalVendu;
 
 }
+
+double Portefeuille::liquiderActif(string nom, double prix) {
+
+    for(int i = 0; i < this->_capacite; i++)
+    {
+        if(_actifs[i].getNom() == nom)
+        {
+            return venteActif(nom, _actifs[i].getQuantite(), prix);
+        }
+    }
+
+    cout << "Vous ne pouvez pas liquider un actif que vous n'avez pas dans votre portefeuille" << endl;
+
+    return -1;
+}
+
 void Portefeuille::redimensionneTableauActifs(int nouvCap) {
     Actif* newTab = new Actif[nouvCap];
     copy(&_actifs[0], &_actifs[min(_nba,nouvCap)-1], &newTab[0]);
@@ -80,10 +96,10 @@ void Portefeuille::redimensionneTableauActifs(int nouvCap) {
 }
 
 void Portefeuille::afficher() {
-    cout << _nba;
-    cout << _capacite;
+    cout << _nba << "\n";
+    cout << _capacite << "\n";
     int i = 0;
-    while(i < _capacite) {
+    while(i < _nba) {
         _actifs[i].afficher();
         i++;
     }
