@@ -49,11 +49,20 @@ void VenteActif() {
     portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
 }
 
+void LiquidActifByName(string nom) {
+    
+}
 void LiquidAct() {
+    string nomActifLiquid
+    cout << "Nom de l'actif que vous souhaitez liquider\n";
+    cin >> nomActifLiquid;
+    LiquidActifByName(nomActifLiquid);
 
 }
 
+void LiquidPort() {
 
+}
 
 
 
@@ -86,6 +95,7 @@ int main()
              break;
          case 4:
              cout << "\n liquidation totale du portefeuille";
+             LiquidPort();
              break;
          case 5:
              cout << "\n affichage des caracteristiques du portefeuille";
