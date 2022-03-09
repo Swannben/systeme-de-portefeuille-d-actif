@@ -15,6 +15,9 @@ Actif::~Actif() {
 }
 
 Actif::Actif() {
+    _id = NULL;
+    _prixRevientUnitaire = NULL;
+    _quantite = NULL;
 
 }
 
@@ -56,7 +59,7 @@ void Actif::vente(int quantite, double prix) {
         this->_quantite -= quantite;
     }
     else {
-        cout << "Quantité insuffisante pour vendre";
+        cout << "Quantite insuffisante pour vendre";
     }
 }
 

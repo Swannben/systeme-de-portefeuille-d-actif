@@ -57,7 +57,7 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
 
         }
         else { 
-            cout << "vous essayez de vendre plus d'actifs que vous en avez voila la quantité que vous avez " << _actifs[i].getQuantite() << endl;
+            cout << "vous essayez de vendre plus d'actifs que vous en avez voila la quantite que vous avez " << _actifs[i].getQuantite() << endl;
         }
     }
     else {
