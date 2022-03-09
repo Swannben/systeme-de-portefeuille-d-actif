@@ -23,13 +23,14 @@ void AchatActif() {
     string nomActifAchat;
     double prixAchat;
     int quantiteAchat;
+    double valeurAchat;
     cout << "Nom de l'actif que vous souhaitez acheter : \n";
     cin >> nomActifAchat;
     cout << "Quantite que vous souhaitez acheter : \n";
     cin >> quantiteAchat;
-    cout << "prix d'achat unitaire (laisser 0 si prix de revient definit)";
+    cout << "prix d'achat unitaire \n";
     cin >> prixAchat;
-    portefeuille->achatActif(nomActifAchat, quantiteAchat, prixAchat);
+    valeurAchat=portefeuille->achatActif(nomActifAchat, quantiteAchat, prixAchat);
     cout << "vous avez achete pour " << quantiteAchat << " de " << nomActifAchat;
 }
 
@@ -37,16 +38,17 @@ void VenteActif() {
 
     portefeuille->afficher();
     string nomActifVente;
-    double prixVente;
+    double prixVente, valeurVente;
     int quantiteVente;
 
     cout << "Nom de l'actif que vous souhaitez vendre : \n";
     cin >> nomActifVente;
     cout << "Quantite que vous souhaitez vendre : \n";
     cin >> quantiteVente;
-    cout << "prix de vente unitaire (laisser 0 si c'est le prix de revient definit)";
+    cout << "prix de vente unitaire (laisser 0 si c'est le prix de revient definit)\n";
     cin >> prixVente;
-    portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
+    valeurVente=portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
+    cout << "vous avez vendu pour " << valeurVente << " de " << nomActifVente << endl;
 }
 
 void LiquidAct() {

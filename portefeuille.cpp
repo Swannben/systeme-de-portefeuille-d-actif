@@ -17,31 +17,34 @@ Portefeuille::Portefeuille(const Portefeuille& portefeuille) {
 Portefeuille::~Portefeuille() {
     delete this->_actifs;
 }
-void Portefeuille::achatActif(string nom,int quantite,double prix) {
+double Portefeuille::achatActif(string nom,int quantite,double prix) {
     int i = 0;
+    double prixAchete;
     while ( i < _nba-1 && _actifs[i].getNom()!=nom) {
         i++;
     }
     if (this->_actifs[i].getNom() == nom) {
-        this->_actifs[i].achat(quantite, prix);
+        prixAchete=this->_actifs[i].achat(quantite, prix);
     }
     else if (this->_nba!=_capacite) {
         this->_nba++;
         this->_actifs[this->_nba-1] = Actif(nom, quantite, prix);
+        prixAchete = quantite * prix;
     }
     else {
-        _capacite++;
+        redimensionneTableauActifs(_capacite*2);
         this->_nba++;
         this->_actifs[this->_nba-1] = Actif(nom, quantite, prix);
+        prixAchete = quantite * prix;
     }
+    return prixAchete;
 }
 double Portefeuille::venteActif(string nom,int quantite,double prix) {
     int i = 0;
     double prixTotalVendu = quantite * prix;
     while (i < _capacite && this->_actifs[i].getNom() != nom) { //parcours le tableau d'actif  dans le portefeuille
         i++;
-    
-
+    }
     if (_actifs[i].getNom() == nom) {
         if (_actifs[i].getQuantite() > quantite) {
             _actifs[i].vente(quantite);
@@ -63,7 +66,6 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     else {
         cout << " il n'y a pas d'actif portant ce nom";
 
-    }
     }
     return prixTotalVendu;
 

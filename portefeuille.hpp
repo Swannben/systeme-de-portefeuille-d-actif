@@ -12,7 +12,7 @@ class Portefeuille {
         Portefeuille(int = 10);
         Portefeuille(const Portefeuille&);
         ~Portefeuille();
-        void achatActif(string,int,double);
+        double achatActif(string,int,double);
         double venteActif(string,int,double);
         int getNba() const { return _nba; }
         int getCapacite() const { return _capacite; }
