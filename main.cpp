@@ -55,7 +55,7 @@ void LiquidAct() {
 
 void LiquidPort() {
     int i = 0;
-    while(i < portefeuille->getNba()) {
+    while(i < portefeuille->getNba() +1 ) {
         portefeuille->liquiderActif(portefeuille->getActifs()[i].getNom(), portefeuille->getActifs()[i].getPrixRevientUnitaire());
         i++;
     }

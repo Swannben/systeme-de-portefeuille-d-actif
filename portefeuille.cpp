@@ -42,7 +42,7 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     double prixTotalVendu = quantite * prix;
     
     while (i < _capacite && this->_actifs[i].getNom() != nom) { //parcours le tableau d'actif  dans le portefeuille
-        i++;
+    i++;
     }
     
     if (_actifs[i].getNom() == nom) {
@@ -55,9 +55,7 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
             this->_actifs[i] = this->_actifs[this->_nba-1];
             this->_actifs[this->_nba-1] = Actif();
             _nba--;
-            if (_nba < _capacite / 2) {
-                redimensionneTableauActifs(_nba);
-            }
+            
 
         }
         else { 
@@ -68,6 +66,7 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
         cout << " il n'y a pas d'actif portant ce nom";
 
     }
+    
     return prixTotalVendu;
 
 }
@@ -79,6 +78,7 @@ double Portefeuille::liquiderActif(string nom, double prix) {
         if(_actifs[i].getNom() == nom)
         {
             return venteActif(nom, _actifs[i].getQuantite(), prix);
+            
         }
     }
 
