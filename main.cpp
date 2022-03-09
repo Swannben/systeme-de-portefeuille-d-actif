@@ -8,22 +8,12 @@ using namespace std;
 
 int main()
 {
-<<<<<<< HEAD
-    Portefeuille* portefeuille = new Portefeuille(1);
+    Portefeuille* portefeuille = new Portefeuille(10);
     Actif* actif1 = new Actif("actif1", 10, 8.4);
     Actif* actif2 = new Actif("actif2", 20, 9.9);
     Actif* actif3 = new Actif("actif3", 13, 12.4);
     Actif* actif4 = new Actif("actif4", 20, 4.53);
     Actif* actif5 = new Actif("actif5", 15, 10.5);
-=======
-    Portefeuille* portefeuille = new Portefeuille(10);
-    Actif* actif1 = new Actif("actif1", 3, 3.4);
-    Actif* actif2 = new Actif("actif2", 3, 3.4);
-    Actif* actif3 = new Actif("actif3", 3, 3.4);
-    Actif* actif4 = new Actif("Bluby", 3, 3.4);
-    Actif* actif5 = new Actif("Bluby", 3, 3.4);
-
->>>>>>> 9f22566264f030a0628bb6efec0570321e6841a0
     
     cout << "1: Achat d'un actif\n2: Vente d'un actif\n3: Liquidation totale d'un actif\n4: Liquidation totale du portefeuille\n5: Affichage caracteristiques portefeuille\n";
      int menu;
@@ -53,15 +43,10 @@ int main()
             string nomActifVente;
             double prixVente;
             int quantiteVente;
-<<<<<<< HEAD
             cin >> nomActifVente;
             cin >> quantiteVente;
             cin >> prixVente;
             portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
-=======
-            int id;
-
->>>>>>> 9f22566264f030a0628bb6efec0570321e6841a0
             break;
         case 3:
             cout << "\n liquidation totale d'un actif";
@@ -70,7 +55,7 @@ int main()
             cout << "\n liquidation totale du portefeuille";
             break;
         case 5:
-            cout << "\n affichage des caractéristiques du portefeuille";
+            cout << "\n affichage des caractï¿½ristiques du portefeuille";
             portefeuille->afficher();
             break;
          default:
