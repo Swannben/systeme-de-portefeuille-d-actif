@@ -77,10 +77,10 @@ void Portefeuille::redimensionneTableauActifs(int nouvCap) {
 }
 
 void Portefeuille::afficher() {
-    cout << _nba;
-    cout << _capacite;
+    cout << _nba << "\n";
+    cout << _capacite << "\n";
     int i = 0;
-    while(i < _capacite) {
+    while(i < _nba) {
         _actifs[i].afficher();
         i++;
     }
