@@ -22,7 +22,7 @@ class Actif {
         void setNom(string nom);
         void setIdAttribue(int idA);
         void achat(int quantite, double prix = 0);
-        void vente(int quantite);
+        void vente(int quantite, double prix = 0);
         void afficher();
         
 

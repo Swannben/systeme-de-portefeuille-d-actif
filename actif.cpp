@@ -46,11 +46,13 @@ void Actif::achat(int quantite, double prix /*= 0*/){
     this->_prixRevientUnitaire = prix;
 }
 
-void Actif::vente(int quantite) {
-    
+void Actif::vente(int quantite, double prix) {
+    if (prix == 0) {
+        prix = this->_prixRevientUnitaire;
+    }
     int oldQuantite = this->_quantite;
     
-    if (oldQuantite - quantite > 0) {
+    if (oldQuantite - quantite >= 0) {
         this->_quantite -= quantite;
     }
     else {
