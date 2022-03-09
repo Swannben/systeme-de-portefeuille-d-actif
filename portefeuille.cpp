@@ -67,3 +67,13 @@ void Portefeuille::redimensionneTableauActifs(int nouvCap) {
     std::swap(_actifs, newTab);
     delete(newTab);
 }
+
+void Portefeuille::afficher() {
+    cout << _nba;
+    cout << _capacite;
+    int i = 0;
+    while(i < _capacite) {
+        _actifs[i].afficher();
+        i++;
+    }
+}

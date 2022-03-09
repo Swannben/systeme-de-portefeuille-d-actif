@@ -18,4 +18,5 @@ class Portefeuille {
         int getCapacite() const { return _capacite; }
         Actif* getActifs() const { return _actifs; }
         void redimensionneTableauActifs(int nouvCap);
+        void afficher();
 };

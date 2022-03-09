@@ -59,7 +59,7 @@ void Actif::vente(int quantite) {
 }
 
 void Actif::afficher() {
-    cout << "ID : " << this->_id << "\n";
+    cout << "\nID : " << this->_id << "\n";
     cout << "Nom : " << this->_nom << "\n";
     cout << "Prix de revient unitaire : " << this->_prixRevientUnitaire << "\n";
     cout << "Quantite : " << this->_quantite << "\n";

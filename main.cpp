@@ -9,11 +9,11 @@ using namespace std;
 int main()
 {
     Portefeuille* portefeuille = new Portefeuille(1);
-    Actif* actif1 = new Actif("actif1", 3, 3.4);
-    Actif* actif2 = new Actif("actif2", 3, 3.4);
-    Actif* actif3 = new Actif("actif3", 3, 3.4);
-    Actif* actif4 = new Actif("Bluby", 3, 3.4);
-    Actif* actif5 = new Actif("Bluby", 3, 3.4);
+    Actif* actif1 = new Actif("actif1", 10, 8.4);
+    Actif* actif2 = new Actif("actif2", 20, 9.9);
+    Actif* actif3 = new Actif("actif3", 13, 12.4);
+    Actif* actif4 = new Actif("actif4", 20, 4.53);
+    Actif* actif5 = new Actif("actif5", 15, 10.5);
     
     cout << "1: Achat d'un actif\n2: Vente d'un actif\n3: Liquidation totale d'un actif\n4: Liquidation totale du portefeuille\n5: Affichage caracteristiques portefeuille\n";
      int menu;
@@ -28,14 +28,25 @@ int main()
             actif3->afficher();
             actif4->afficher();
             actif5->afficher();
+            string nomActifAchat;
             double prixAchat;
             int quantiteAchat;
+            cout << "Nom de l'actif que vous souhaitez acheter : \n";
+            cin >> nomActifAchat;
+            cout << "Quantite que vous souhaitez acheter : \n";
             cin >> quantiteAchat;
+
             break;
          case 2:
             cout << "\nVente d'un actif";
+            portefeuille->afficher();
+            string nomActifVente;
+            double prixVente;
             int quantiteVente;
-            int id;
+            cin >> nomActifVente;
+            cin >> quantiteVente;
+            cin >> prixVente;
+            portefeuille->venteActif(nomActifVente, quantiteVente, prixVente);
             break;
         case 3:
             cout << "\n";
