@@ -9,7 +9,7 @@ class Portefeuille {
         int _capacite;
         Actif* _actifs;
     public: 
-        Portefeuille(int = 1);
+        Portefeuille(int = 10);
         Portefeuille(const Portefeuille&);
         ~Portefeuille();
         void achatActif(string,int,double);
