@@ -41,11 +41,10 @@ double Portefeuille::venteActif(string nom,int quantite,double prix) {
     while (i < _capacite && this->_actifs[i].getNom() != nom) { //parcours le tableau d'actif  dans le portefeuille
         i++;
     
-    if (this->_actifs[i].getNom() == nom) { // on cherche un nom spécifique
-        if (this->_actifs[i].getQuantite() > quantite) { //si la quantité de l'actif dans le portefeuille est > à la quantité à vendre
-            this->_actifs[i].vente(quantite); // on vent l'actif avec la quantité souhaité
-            
-            
+
+    if (_actifs[i].getNom() == nom) {
+        if (_actifs[i].getQuantite() > quantite) {
+            _actifs[i].vente(quantite);
         }
         else {
             prixTotalVendu = prix*_actifs[i].getQuantite();
